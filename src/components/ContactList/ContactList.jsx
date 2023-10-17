@@ -10,7 +10,7 @@ export const ContactList = () => {
 
   const getFiltered = () =>
     contacts.filter(contact =>
-      contact.Name.toLowerCase().includes(filter.toLowerCase())
+      contact.name.toLowerCase().includes(filter.toLowerCase())
     );
 
   const filteredContacts = getFiltered();
@@ -22,8 +22,8 @@ export const ContactList = () => {
           <ContactItem
             key={contact.id}
             id={contact.id}
-            name={contact.Name}
-            number={contact.Number}
+            name={contact.name}
+            number={contact.phone}
           ></ContactItem>
         );
       })}

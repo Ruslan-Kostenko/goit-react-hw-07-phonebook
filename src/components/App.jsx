@@ -4,10 +4,16 @@ import { Filter } from './Filter/Filter';
 import { StyledPhoneBook } from './PhoneBook/PhoneBook.styled';
 import { GlobalStyle } from './GlobalStyle';
 import { getContacts } from 'store/PhoneBook/phoneBookSlice';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchContacts } from 'store/PhoneBook/operations';
 
 export const App = () => {
+  const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   return (
     <StyledPhoneBook>

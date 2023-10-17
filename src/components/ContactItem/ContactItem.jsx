@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { ContItemEl, ContactBtn } from './ContactItem.styled';
-import { deleteContact } from 'store/PhoneBook/phoneBookSlice';
+import { fetchDeleteContact } from 'store/PhoneBook/operations';
+
 
 export const ContactItem = ({ name, number, id }) => {
   const dispatch = useDispatch();
@@ -9,7 +10,7 @@ export const ContactItem = ({ name, number, id }) => {
     <ContItemEl>
       <div>{name}: {number}</div>
       <ContactBtn
-        onClick={() => dispatch(deleteContact(id))}
+        onClick={() => dispatch(fetchDeleteContact(id))}
         value={id}
         type="button"
       >
